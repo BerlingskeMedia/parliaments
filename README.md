@@ -17,13 +17,13 @@ Returns a JSON data structure in the following format:
     {
       "candidate":
       {
-        "id": "8",
+        "id": 8,
         "name": "Helle Thorning-Schmidt",
         "image": "http://s3.aws.com/image_helle.png"
       },
       "office":
       {
-        "id": "2",
+        "id": 2,
         "name": "Kirkeminister",
         "order": "xxx"
       }
@@ -31,13 +31,13 @@ Returns a JSON data structure in the following format:
     {
       "candidate":
       {
-        "id": "12",
+        "id": 12,
         "name": "Villy Søvndal",
         "image": "http://s3.aws.com/image_villy.png"
       },
       "office":
       {
-        "id": "1",
+        "id": 1,
         "name": "Statsminister",
         "order": "xxx"
       }
@@ -59,11 +59,11 @@ Request body data must be a JSON data structure in the following format:
     {
       "candidate":
       {
-        "id": "8"
+        "id": 8
       },
       "office":
       {
-        "id": "2"
+        "id": 2
       }
     },
     {
@@ -75,24 +75,24 @@ Request body data must be a JSON data structure in the following format:
       },
       "office":
       {
-        "id": "1"
+        "id": 1
       }
     }
   ]
 }
 ```
 
-HTTP Header Content-Type must be application/json.
+HTTP Header `Content-Type` must be `application/json`.
 
 Returns a JSON data structure with the new id of the created parliament in the following structure:
 
 ```
 {
-  "id": "432"
+  "uuid": "0e27dde6-54f6-44c5-b4f0-2aa43b8948a1"
 }
 ```
 
-### GET /parliaments/{id}
+### GET /parliaments/{uuid}
 
 The method returns a specific parliament created by a user.
 
@@ -107,11 +107,11 @@ Returns a JSON data structure in the following format:
 ```
 [
   {
-    "id": "1",
+    "id": 1,
     "name": "Statsminister"
   },
   {
-    "id": "2",
+    "id": 2,
     "name": "Kirkeminister"
   }
 ]
@@ -121,26 +121,26 @@ Returns a JSON data structure in the following format:
 
 This method retrieve all candidates sorted by nomination score - including candidates that has never been nominated for the office. The field score is the count the candidate has been nominated for the specified office (:id parameter in the URL).
 
-*TODO:* Hmm, this will result in returning every candidate once for each office. This is not efficient. We could return all candidates with office nominations embedded. But will this be useful?
+**TODO:** Hmm, this will result in returning every candidate once for each office. This is not efficient. We could return all candidates with office nominations embedded. But will this be useful?
 
 Returns a JSON data structure in the following format:
 
 ```
 [
   {
-    "id": "8",
+    "id": 8,
     "name": "Helle Thorning-Schmidt",
     "image": "http://s3.aws.com/image_helle.png",
     "score": 2
   },
   {
-    "id": "12",
+    "id": 12,
     "name": "Villy Søvndal",
     "image": "http://s3.aws.com/image_villy.png",
     "score": 1
   },
   {
-    "id": "13",
+    "id": 13,
     "name": "Rasmus Klump",
     "image": "http://s3.aws.com/image_ramus.png",
     "score": 0

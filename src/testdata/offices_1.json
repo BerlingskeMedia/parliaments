@@ -1,555 +1,555 @@
 [
   {
-    "id": "38",
+    "id": 38,
     "name": "Henrik Dam Kristensen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/c66c8d94bc72130edc53d18ffef31006.jpg",
     "score": 20
   },
   {
-    "id": "57",
+    "id": 57,
     "name": "Lars Løkke Rasmussen, politiker",
     "score": 19
   },
   {
-    "id": "18",
+    "id": 18,
     "name": "Christian Clausen, Nordea-koncernchef",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/abeaeb144c8b581bb1b68533a62a35c5.jpg",
     "score": 18
   },
   {
-    "id": "16",
+    "id": 16,
     "name": "Brian Mikkelsen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/ce90047fe7ec60343d03f9be0e2eddd8.jpg",
     "score": 16
   },
   {
-    "id": "93",
+    "id": 93,
     "name": "Søren Gade, tid. politiker og landbrugsdirektør",
     "score": 16
   },
   {
-    "id": "50",
+    "id": 50,
     "name": "Karsten Dybvad, formand for Dansk Industri",
     "score": 15
   },
   {
-    "id": "1",
+    "id": 1,
     "name": "Alex Ahrentsen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/a140f74a36577a2298afaa58be4ecf10.jpg",
     "score": 14
   },
   {
-    "id": "95",
+    "id": 95,
     "name": "Søren Pind, politiker",
     "score": 14
   },
   {
-    "id": "40",
+    "id": 40,
     "name": "Henrik Sass Larsen, erhvervsminister",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/72cda6e08796f2cbb14567e160a9e5b8.jpg",
     "score": 13
   },
   {
-    "id": "43",
+    "id": 43,
     "name": "Inger Støjberg, politiker",
     "score": 12
   },
   {
-    "id": "80",
+    "id": 80,
     "name": "Nick Hækkerup, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/82486f6cb1645d29acce6127ffd4fd89.jpg",
     "score": 12
   },
   {
-    "id": "5",
+    "id": 5,
     "name": "Axel Ahrentsen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/a140f74a36577a2298afaa58be4ecf10.jpg",
     "score": 12
   },
   {
-    "id": "54",
+    "id": 54,
     "name": "Kjeld Holm, biskop i Århus",
     "score": 12
   },
   {
-    "id": "76",
+    "id": 76,
     "name": "Morten Bødskov, politiker",
     "score": 11
   },
   {
-    "id": "2",
+    "id": 2,
     "name": "Anders Fogh Rasmussen, tidl. NATO-generalsekretær",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/71b0d592c12c1a5e6d821fe95dae5de6.jpg",
     "score": 1
   },
   {
-    "id": "3",
+    "id": 3,
     "name": "Anders Ladekarl",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/9d77de86d00eb4b52d721c74cd748af2.jpg",
     "score": 2
   },
   {
-    "id": "4",
+    "id": 4,
     "name": "Anette Vilhelmsen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/b0139ab3aee6068d74ceb252bb46460c.jpg",
     "score": 0
   },
   {
-    "id": "6",
+    "id": 6,
     "name": "Asger Aamund, erhvervsmand",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/d2a64307f7ba0f13083a89e7b820a23d.jpg",
     "score": 8
   },
   {
-    "id": "7",
+    "id": 7,
     "name": "B. S. Christiansen, tidl. jægersoldat",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/a48c01b2b7999b5155b20a6ef8b17488.jpg",
     "score": 0
   },
   {
-    "id": "8",
+    "id": 8,
     "name": "Benjamin Yeh, krigsveterantalsmand",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/1518abe5d224ad14f7f1a9fc38847628.jpg",
     "score": 6
   },
   {
-    "id": "9",
+    "id": 9,
     "name": "Benny Engelbrecht, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/7008a1a88e4b73461ec958baee5cc7e4.jpg",
     "score": 5
   },
   {
-    "id": "10",
+    "id": 10,
     "name": "Bent Hansen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/d6eb53c2dee7c39b56ae82894595b73d.jpg",
     "score": 5
   },
   {
-    "id": "11",
+    "id": 11,
     "name": "Birthe Rønn Hornbech, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/d98afa413224f967a2ec79dce3a1d576.jpg",
     "score": 7
   },
   {
-    "id": "12",
+    "id": 12,
     "name": "Bjarke Ingels, arkitekt",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/2f98c23c46d649bae7895ab82dcc2828.jpg",
     "score": 2
   },
   {
-    "id": "13",
+    "id": 13,
     "name": "Bjarne Corydon, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/eaf058bbd683de1c47aff357284dcd8f.jpg",
     "score": 3
   },
   {
-    "id": "14",
+    "id": 14,
     "name": "Bjørn Lomborg, tænketanksdirektør",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/62d38bff8c6f9bcee28a0059e872c831.jpg",
     "score": 0
   },
   {
-    "id": "15",
+    "id": 15,
     "name": "Bjørn Nørgaard, kunstner",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/f442c8da9bc6fceeafacb0230af59004.jpg",
     "score": 0
   },
   {
-    "id": "17",
+    "id": 17,
     "name": "Carsten Hansen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/692811ff94399b754dec7e82199c4152.jpg",
     "score": 0
   },
   {
-    "id": "19",
+    "id": 19,
     "name": "Christian Friis-Bach",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/a14a1eed9789a52a89de308f1bff7d4c.jpg",
     "score": 0
   },
   {
-    "id": "20",
+    "id": 20,
     "name": "Christian Have, PR-mand",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/d1f5ba31315f439fb89cd40acd4d0245.jpg",
     "score": 1
   },
   {
-    "id": "21",
+    "id": 21,
     "name": "Christian Lollike, dramatiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/d0baa259d9975153d14da93c51310faa.jpg",
     "score": 4
   },
   {
-    "id": "22",
+    "id": 22,
     "name": "Claus Hjort Frederiksen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/e8fde57e7b8a477e1a980fceb63c84fd.jpg",
     "score": 0
   },
   {
-    "id": "23",
+    "id": 23,
     "name": "Claus Meyer, kok og iværksætter",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/0e4198ff6cc9e391417413f3e2a9a143.jpg",
     "score": 0
   },
   {
-    "id": "24",
+    "id": 24,
     "name": "Connie Hedegaard, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/1a5a794af9c7fa58d65841ab913120fd.jpg",
     "score": 6
   },
   {
-    "id": "25",
+    "id": 25,
     "name": "Dan Jørgensen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/25362ef7326ef26be444fa9565527c6d.jpg",
     "score": 0
   },
   {
-    "id": "26",
+    "id": 26,
     "name": "Dovne Robert",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/dcffb83b9a7a9f6d7548a7def7bc4396.jpg",
     "score": 0
   },
   {
-    "id": "27",
+    "id": 27,
     "name": "Ella Maria Bisschop-Larsen, præsident for Danmarks Naturfredningsforening",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/1f38c2f253956d69b85d955391e6ceb5.jpg",
     "score": 0
   },
   {
-    "id": "28",
+    "id": 28,
     "name": "Erik Normann Svendsen, kongelig konfessionarius",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/db823b408505a9604a15a05144ccead4.jpg",
     "score": 0
   },
   {
-    "id": "29",
+    "id": 29,
     "name": "Eske Willerslev, forsker og professor",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/04ecf07a87d3ff143c4901b14373f466.jpg",
     "score": 0
   },
   {
-    "id": "30",
+    "id": 30,
     "name": "Eva Smith, jurist",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/ace48263fe955e8a9855d69c24ca1c30.jpg",
     "score": 0
   },
   {
-    "id": "31",
+    "id": 31,
     "name": "Frank Erichsen, 'Bonderøven'",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/2ff6b9483f8a4b84dae94ad47352693c.jpg",
     "score": 0
   },
   {
-    "id": "32",
+    "id": 32,
     "name": "Hans Christian Schmidt, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/86382ee3acb00072f67dc4baa68e199d.jpg",
     "score": 0
   },
   {
-    "id": "33",
+    "id": 33,
     "name": "Hans Jørgen Whitta-Jacobsen, overvismand",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/3524a3a6431434ca9264cf13e69e1831.jpg",
     "score": 0
   },
   {
-    "id": "34",
+    "id": 34,
     "name": "Harald Børsting, LO-formand",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/42a14e46646d16d69f8d06b7a0a089dc.jpg",
     "score": 0
   },
   {
-    "id": "35",
+    "id": 35,
     "name": "Hassan Preisler, skuespiller og forfatter",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/e8af45bba8fe423b2ebc3c292af9738d.jpg",
     "score": 0
   },
   {
-    "id": "36",
+    "id": 36,
     "name": "Helge Sander, politiker",
     "score": 0
   },
   {
-    "id": "37",
+    "id": 37,
     "name": "Helle Thorning-Schmidt, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/e67b74d3cdface8c1998a91c8cffd3ce.jpg",
     "score": 0
   },
   {
-    "id": "39",
+    "id": 39,
     "name": "Henrik Høegh, politiker",
     "score": 0
   },
   {
-    "id": "41",
+    "id": 41,
     "name": "Holger K. Nielsen",
     "score": 0
   },
   {
-    "id": "42",
+    "id": 42,
     "name": "Ida Auken, politiker",
     "score": 0
   },
   {
-    "id": "44",
+    "id": 44,
     "name": "Jacob Mchangama, jurist og tænketanksdirektør",
     "score": 0
   },
   {
-    "id": "45",
+    "id": 45,
     "name": "Jakob Kjellberg, sundhedsøkonom",
     "score": 0
   },
   {
-    "id": "46",
+    "id": 46,
     "name": "Joachim B. Olsen, politiker",
     "score": 0
   },
   {
-    "id": "47",
+    "id": 47,
     "name": "Jørgen Vig Knudstorp, Lego-direktør",
     "score": 0
   },
   {
-    "id": "48",
+    "id": 48,
     "name": "Karen Hækkerup, landbrugsdirektør",
     "score": 0
   },
   {
-    "id": "49",
+    "id": 49,
     "name": "Karen Jespersen, poltiker",
     "score": 0
   },
   {
-    "id": "51",
+    "id": 51,
     "name": "Karsten Orth, direktør for Statens Museum for kunst",
     "score": 0
   },
   {
-    "id": "52",
+    "id": 52,
     "name": "Kirsten Brosbøl, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/ef5f969f4e78958bc912b79728b0571a.jpg",
     "score": 0
   },
   {
-    "id": "53",
+    "id": 53,
     "name": "Kirsten Ketcher, professor i socialret",
     "score": 0
   },
   {
-    "id": "55",
+    "id": 55,
     "name": "Klaus Bondam, cyklistdirektør",
     "score": 0
   },
   {
-    "id": "56",
+    "id": 56,
     "name": "Kristian Thulesen Dahl, politiker",
     "score": 0
   },
   {
-    "id": "58",
+    "id": 58,
     "name": "Lars Møller, tidl. oberst",
     "score": 0
   },
   {
-    "id": "59",
+    "id": 59,
     "name": "Lene Espersen, politiker",
     "score": 10
   },
   {
-    "id": "60",
+    "id": 60,
     "name": "Lene Vestergaard Hau, forsker",
     "score": 0
   },
   {
-    "id": "61",
+    "id": 61,
     "name": "Lisbeth Zornig Andersen, konsulent og tidl. formand for Børnerådet",
     "score": 0
   },
   {
-    "id": "62",
+    "id": 62,
     "name": "Louise Schack Elholm, politiker",
     "score": 0
   },
   {
-    "id": "63",
+    "id": 63,
     "name": "Lykke Friis, prorektor og tidl. politiker",
     "score": 10
   },
   {
-    "id": "64",
+    "id": 64,
     "name": "Mads Krogsgaard Thomsen, forskningsdirektør i Novo Nordisk",
     "score": 0
   },
   {
-    "id": "65",
+    "id": 65,
     "name": "Magnus Heunicke, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/774dbf9271769d9666ddf6b921f2f739.jpg",
     "score": 0
   },
   {
-    "id": "66",
+    "id": 66,
     "name": "Manu Sareen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/e14d23761d4941aaeb1762533a8e2922.jpg",
     "score": 0
   },
   {
-    "id": "67",
+    "id": 67,
     "name": "Margrethe Vestager, politiker",
     "score": 0
   },
   {
-    "id": "68",
+    "id": 68,
     "name": "Marianne Jelved, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/e51e91a12ebc494d8124f8f72dcff2dd.jpg",
     "score": 0
   },
   {
-    "id": "69",
+    "id": 69,
     "name": "Martin Henriksen, politiker",
     "score": 0
   },
   {
-    "id": "70",
+    "id": 70,
     "name": "Martin Lidegaard, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/39f77d004cbd00c428b541874b3a4f16.jpg",
     "score": 0
   },
   {
-    "id": "71",
+    "id": 71,
     "name": "Martin Præstegaard, departementschef",
     "score": 6
   },
   {
-    "id": "72",
+    "id": 72,
     "name": "Martin Thorborg, serieiværksætter",
     "score": 0
   },
   {
-    "id": "73",
+    "id": 73,
     "name": "Mette Frederiksen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/02bb8531c184b5cee1d6d619ff054155.jpg",
     "score": 9
   },
   {
-    "id": "74",
+    "id": 74,
     "name": "Mogens Jensen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/6febca06eea5a60159874cfa3c2d5123.jpg",
     "score": 0
   },
   {
-    "id": "75",
+    "id": 75,
     "name": "Morten Albæk, filosof og Vestasdirektør",
     "score": 0
   },
   {
-    "id": "77",
+    "id": 77,
     "name": "Morten Kabell, politiker",
     "score": 0
   },
   {
-    "id": "78",
+    "id": 78,
     "name": "Morten Olsen, fodboldlandstræner",
     "score": 0
   },
   {
-    "id": "79",
+    "id": 79,
     "name": "Morten Østergaard, politiker",
     "score": 0
   },
   {
-    "id": "81",
+    "id": 81,
     "name": "Nikolaj Kirk",
     "score": 0
   },
   {
-    "id": "82",
+    "id": 82,
     "name": "Nikolaj Wammen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/664609d59625ca921c2c19b8619efa1d.jpg",
     "score": 0
   },
   {
-    "id": "83",
+    "id": 83,
     "name": "Per Stig Møller",
     "score": 14
   },
   {
-    "id": "84",
+    "id": 84,
     "name": "Peter Bartram, forsvarschef",
     "score": 0
   },
   {
-    "id": "85",
+    "id": 85,
     "name": "Peter Skov-Jakobsen, biskop i København",
     "score": 0
   },
   {
-    "id": "86",
+    "id": 86,
     "name": "Peter Aalbæk Jensen, filmproducent",
     "score": 0
   },
   {
-    "id": "87",
+    "id": 87,
     "name": "Pia Olsen Dyhr, politiker",
     "score": 0
   },
   {
-    "id": "88",
+    "id": 88,
     "name": "Rasmus Helveg Petersen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/5b164906af772939d11ca08545b37d78.jpg",
     "score": 0
   },
   {
-    "id": "89",
+    "id": 89,
     "name": "Rene Redzepi, kok",
     "score": 10
   },
   {
-    "id": "90",
+    "id": 90,
     "name": "Selina Juul, madspildsbekæmper",
     "score": 0
   },
   {
-    "id": "91",
+    "id": 91,
     "name": "Sofie Carsten Nielsen, politiker",
     "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/ccba8d63e618b949d14ae2d6503a698b.jpg",
     "score": 0
   },
   {
-    "id": "92",
+    "id": 92,
     "name": "Sophie Løhde, politiker",
     "score": 0
   },
   {
-    "id": "94",
+    "id": 94,
     "name": "Søren Pape, politiker",
     "score": 0
   },
   {
-    "id": "96",
+    "id": 96,
     "name": "Torkild Thyrring, racerkører",
     "score": 0
   },
   {
-    "id": "97",
+    "id": 97,
     "name": "Troels Lund Poulsen, politiker",
     "score": 0
   },
   {
-    "id": "98",
+    "id": 98,
     "name": "Uffe Elbæk, politiker",
     "score": 0
   },
   {
-    "id": "99",
+    "id": 99,
     "name": "Uffe Ellemann-Jensen, tidl. udenrigsminister",
     "score": 0
   },
   {
-    "id": "100",
+    "id": 100,
     "name": "Ulrik Vestergaard, departementschef",
     "score": 0
   },
   {
-    "id": "101",
+    "id": 101,
     "name": "Özlem Cekic, politiker",
     "score": 0
   }

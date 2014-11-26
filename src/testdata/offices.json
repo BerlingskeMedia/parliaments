@@ -1,82 +1,82 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "name": "Beskæftigelsesminister"
   },
   {
-    "id": "2",
+    "id": 2,
     "name": "Boligminister"
   },
   {
-    "id": "3",
+    "id": 3,
     "name": "Erhvervsminister"
   },
   {
-    "id": "4",
+    "id": 4,
     "name": "Finansminister"
   },
   {
-    "id": "5",
+    "id": 5,
     "name": "Forskningsminister"
   },
   {
-    "id": "6",
+    "id": 6,
     "name": "Forsvarsminister"
   },
   {
-    "id": "7",
+    "id": 7,
     "name": "Fødevareminister"
   },
   {
-    "id": "8",
+    "id": 8,
     "name": "Integrationsminister"
   },
   {
-    "id": "9",
+    "id": 9,
     "name": "Justitsminister"
   },
   {
-    "id": "10",
+    "id": 10,
     "name": "Kirkeminister"
   },
   {
-    "id": "11",
+    "id": 11,
     "name": "Klimaminister"
   },
   {
-    "id": "12",
+    "id": 12,
     "name": "Kulturminister"
   },
   {
-    "id": "13",
+    "id": 13,
     "name": "Miljøminister"
   },
   {
-    "id": "14",
+    "id": 14,
     "name": "Socialminister"
   },
   {
-    "id": "15",
+    "id": 15,
     "name": "Sundhedsminister"
   },
   {
-    "id": "16",
+    "id": 16,
     "name": "Skatteminister"
   },
   {
-    "id": "17",
+    "id": 17,
     "name": "Statsminister"
   },
   {
-    "id": "18",
+    "id": 18,
     "name": "Transportminister"
   },
   {
-    "id": "19",
+    "id": 19,
     "name": "Udenrigsminister"
   },
   {
-    "id": "20",
+    "id": 20,
     "name": "Udviklingsminister"
   }
 ]
