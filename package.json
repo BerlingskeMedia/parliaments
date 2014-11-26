@@ -1,0 +1,26 @@
+{
+  "name": "parliaments",
+  "version": "0.0.1",
+  "description": "Sæt din egen regering",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Berlingske Media",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bmdako/parliaments"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.0.17",
+    "hapi": "^7.5.0",
+    "mysql": "^2.4.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-jshint": "^1.8.4",
+    "browser-sync": "^1.5.1",
+    "jasmine-node": "^1.14.5"
+  }
+}

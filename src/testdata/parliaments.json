@@ -1,0 +1,265 @@
+{
+  "nominations":
+  [
+    {
+      "candidate":
+      {
+        "id": "38",
+        "name": "Henrik Dam Kristensen, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/c66c8d94bc72130edc53d18ffef31006.jpg"
+      },
+      "office":
+      {
+        "id": "1",
+        "name": "Beskæftigelsesminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "17",
+        "name": "Carsten Hansen, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/692811ff94399b754dec7e82199c4152.jpg"
+      },
+      "office":
+      {
+        "id": "2",
+        "name": "Boligminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "40",
+        "name": "Henrik Sass Larsen, erhvervsminister",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/72cda6e08796f2cbb14567e160a9e5b8.jpg"
+      },
+      "office":
+      {
+        "id": "3",
+        "name": "Erhvervsminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "13",
+        "name": "Bjarne Corydon, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/eaf058bbd683de1c47aff357284dcd8f.jpg"
+      },
+      "office":
+      {
+        "id": "4",
+        "name": "Finansminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "91",
+        "name": "Sofie Carsten Nielsen, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/ccba8d63e618b949d14ae2d6503a698b.jpg"
+      },
+      "office":
+      {
+        "id": "5",
+        "name": "Forskningsminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "82",
+        "name": "Nikolaj Wammen, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/664609d59625ca921c2c19b8619efa1d.jpg"
+      },
+      "office":
+      {
+        "id": "6",
+        "name": "Forsvarsminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "25",
+        "name": "Dan Jørgensen, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/25362ef7326ef26be444fa9565527c6d.jpg"
+      },
+      "office":
+      {
+        "id": "7",
+        "name": "Fødevareminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "66",
+        "name": "Manu Sareen, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/e14d23761d4941aaeb1762533a8e2922.jpg"
+      },
+      "office":
+      {
+        "id": "8",
+        "name": "Integrationsminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "73",
+        "name": "Mette Frederiksen, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/02bb8531c184b5cee1d6d619ff054155.jpg"
+      },
+      "office":
+      {
+        "id": "9",
+        "name": "Justitsminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "68",
+        "name": "Marianne Jelved, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/e51e91a12ebc494d8124f8f72dcff2dd.jpg"
+      },
+      "office":
+      {
+        "id": "10",
+        "name": "Kirkeminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "88",
+        "name": "Rasmus Helveg Petersen, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/5b164906af772939d11ca08545b37d78.jpg"
+      },
+      "office":
+      {
+        "id": "11",
+        "name": "Klimaminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "68",
+        "name": "Marianne Jelved, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/e51e91a12ebc494d8124f8f72dcff2dd.jpg"
+      },
+      "office":
+      {
+        "id": "12",
+        "name": "Kulturminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "52",
+        "name": "Kirsten Brosbøl, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/ef5f969f4e78958bc912b79728b0571a.jpg"
+      },
+      "office":
+      {
+        "id": "13",
+        "name": "Miljøminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "66",
+        "name": "Manu Sareen, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/e14d23761d4941aaeb1762533a8e2922.jpg"
+      },
+      "office":
+      {
+        "id": "14",
+        "name": "Socialminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "80",
+        "name": "Nick Hækkerup, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/82486f6cb1645d29acce6127ffd4fd89.jpg"
+      },
+      "office":
+      {
+        "id": "15",
+        "name": "Sundhedsminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "9",
+        "name": "Benny Engelbrecht, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/7008a1a88e4b73461ec958baee5cc7e4.jpg"
+      },
+      "office":
+      {
+        "id": "16",
+        "name": "Skatteminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "37",
+        "name": "Helle Thorning-Schmidt, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/e67b74d3cdface8c1998a91c8cffd3ce.jpg"
+      },
+      "office":
+      {
+        "id": "17",
+        "name": "Statsminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "65",
+        "name": "Magnus Heunicke, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/774dbf9271769d9666ddf6b921f2f739.jpg"
+      },
+      "office":
+      {
+        "id": "18",
+        "name": "Transportminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "70",
+        "name": "Martin Lidegaard, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/39f77d004cbd00c428b541874b3a4f16.jpg"
+      },
+      "office":
+      {
+        "id": "19",
+        "name": "Udenrigsminister"
+      }
+    },
+    {
+      "candidate":
+      {
+        "id": "74",
+        "name": "Mogens Jensen, politiker",
+        "image": "http://www.b.dk/upload/webred/bmsandbox/uploads/2014/11/6febca06eea5a60159874cfa3c2d5123.jpg"
+      },
+      "office":
+      {
+        "id": "20",
+        "name": "Udviklingsminister"
+      }
+    }
+  ]
+}
