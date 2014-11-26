@@ -22,4 +22,4 @@ COPY ./node_modules /parliaments/node_modules
 EXPOSE  8000
 
 # When starting a container with our image, this command will be run.
-CMD ["node", "/parliaments/src/app.js"]
+CMD ["node", "src/app.js"]
