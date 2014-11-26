@@ -2,9 +2,9 @@
 Create your own parliament
 ======
 
-# API
+## API
 
-## GET /parliaments
+### GET /parliaments
 
 This method is used to retrieve a calculated non-persisted parliament containing the most nominated candidate for each office.
 
@@ -46,7 +46,7 @@ Returns a JSON data structure in the following format:
 }
 ```
 
-## POST /parliaments
+### POST /parliaments
 
 This method is used to create a new parliament with candidate nominations. In case the candidate is a new record that must be created, the id field null or entirely omitted. The the example below Rasmus Klump will be created as a new candidate record in the candidates tabel.
 
@@ -92,13 +92,13 @@ Returns a JSON data structure with the new id of the created parliament in the f
 }
 ```
 
-## GET /parliaments/{id}
+### GET /parliaments/{id}
 
 The method returns a specific parliament created by a user.
 
 Returns a JSON data structure in the same structure as `GET /parliaments` method.
 
-## GET /offices
+### GET /offices
 
 This method retrieves all records from the offices table.
 
@@ -117,7 +117,7 @@ Returns a JSON data structure in the following format:
 ]
 ```
 
-## GET /offices/{id}
+### GET /offices/{id}
 
 This method retrieve all candidates sorted by nomination score - including candidates that has never been nominated for the office. The field score is the count the candidate has been nominated for the specified office (:id parameter in the URL).
 
