@@ -10,7 +10,8 @@ var pack = new Hapi.Pack();
 pack.server(8000, {
   router: {
     stripTrailingSlash: false
-  }
+  },
+  cors: true
 });
 
 pack.register(parliaments, { route: { prefix: '/parliaments' } }, function (err) {
