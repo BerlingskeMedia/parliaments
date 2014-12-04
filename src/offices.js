@@ -12,7 +12,11 @@ module.exports.register = function (plugin, options, next) {
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-      reply.file(__dirname + '/testdata/offices.json');
+      var sql = 'SELECT id, name, sort FROM offices ORDER BY sort ASC';
+
+      rds.query(sql, function (err, offices) {
+        reply(offices);
+      });
     }
   });
 
@@ -20,7 +24,17 @@ module.exports.register = function (plugin, options, next) {
     method: 'GET',
     path: '/{id}',
     handler: function (request, reply) {
-      reply.file(__dirname + '/testdata/offices_' + request.params.id + '.json');
+      var office_id = request.params.id;
+      var sql = [
+        'SELECT candidates.id, candidates.name, count(nominations.id) AS score',
+        'FROM candidates',
+        'LEFT JOIN nominations ON candidates.id = nominations.candidate_id AND nominations.office_id = ' + office_id,
+        'GROUP BY candidates.id',
+        'ORDER BY score DESC'].join(' ');
+
+      rds.query(sql, function (err, office_nominations) {
+        reply(office_nominations);
+      });
     }
   });
 

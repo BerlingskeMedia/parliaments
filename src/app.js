@@ -1,27 +1,28 @@
 'use strict';
 
+
 var Hapi = require('hapi'),
     parliaments = require('./parliaments'),
     offices = require('./offices');
 
 
-var pack = new Hapi.Pack();
-
-pack.server(8000, {
+var server = new Hapi.Server(8000, {
   router: {
     stripTrailingSlash: false
   },
   cors: true
 });
 
-pack.register(parliaments, { route: { prefix: '/parliaments' } }, function (err) {
+
+server.pack.register(parliaments, { route: { prefix: '/parliaments' } }, function (err) {
   if (err) {
     console.log('Error when loading parliaments plugin', err);
     pack.stop();
   }
 });
 
-pack.register(offices, { route: { prefix: '/offices' } }, function (err) {
+
+server.pack.register(offices, { route: { prefix: '/offices' } }, function (err) {
   if (err) {
     console.log('Error when loading offices plugin', err);
     pack.stop();
@@ -30,9 +31,9 @@ pack.register(offices, { route: { prefix: '/offices' } }, function (err) {
 
 
 if (!module.parent) {
-  pack.start(function() {
-    console.log("Pack started.");
+  server.start(function() {
+    console.log("Server started.");
   });
 }
 
-module.exports = pack;
+module.exports = server;

@@ -12,7 +12,32 @@ module.exports.register = function (plugin, options, next) {
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-      reply.file(__dirname + '/testdata/parliaments.json');
+      var sql = [
+        'SELECT id, name',
+        'FROM offices',
+        'ORDER BY sort ASC'].join(' ');
+
+      rds.query(sql, function (err, offices) {
+
+        console.log('offices',offices, sql);
+
+        var result = offices.map(function (office) {
+          var sql2 = [
+            'SELECT candidates.id, candidates.name',
+            'FROM candidates',
+            'LEFT JOIN nominations ON candidates.id = nominations.candidate_id AND nominations.office_id = ' + office.id,
+            'GROUP BY nominations.office_id'].join(' ');
+
+            console.log(sql2);
+            return { office: office };
+
+            rds.query(sql2, function (err, candidate) {
+              return { office: office, candidate: candidate };
+            });
+        });
+
+        reply(result);
+      });
     }
   });
 
