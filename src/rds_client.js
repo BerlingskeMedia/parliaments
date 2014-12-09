@@ -19,7 +19,7 @@ pool.getConnection(function (err, connection) {
     if (err.code === 'ECONNREFUSED') {
       console.log('Maybe the ENV config is missing.');
     }
-    process.exit(1);
+    // process.exit(1);
   } else {
     connection.release();
   }

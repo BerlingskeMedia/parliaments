@@ -54,9 +54,11 @@ module.exports.register = function (plugin, options, next) {
         'ORDER BY sort ASC'].join(' ');
 
       rds.query(sql, function (err, result) {
-
-        var parliament = result.map(to_parliament);
-        reply(parliament);
+        if (err) reply().code(500);
+        else {
+          var parliament = result.map(to_parliament);
+          reply(parliament);
+        }
       });
     }
   });
@@ -76,9 +78,11 @@ module.exports.register = function (plugin, options, next) {
         'ORDER BY sort ASC'].join(' ');
 
       rds.query(sql, function (err, result) {
-
-        var parliament = result.map(to_parliament);
-        reply(parliament);
+        if (err) reply().code(500);
+        else {
+          var parliament = result.map(to_parliament);
+          reply(parliament);
+        }
       });
     }
   });

@@ -15,7 +15,8 @@ module.exports.register = function (plugin, options, next) {
       var sql = 'SELECT id, name, sort FROM offices ORDER BY sort ASC';
 
       rds.query(sql, function (err, offices) {
-        reply(offices);
+        if (err) reply().code(500);
+        else reply(offices);
       });
     }
   });
@@ -33,7 +34,8 @@ module.exports.register = function (plugin, options, next) {
         'ORDER BY score DESC'].join(' ');
 
       rds.query(sql, function (err, office_nominations) {
-        reply(office_nominations);
+        if (err) reply().code(500);
+        else reply(office_nominations);
       });
     }
   });
