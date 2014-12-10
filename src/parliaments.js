@@ -15,10 +15,16 @@ module.exports.register = function (plugin, options, next) {
 
       var parliament = request.mime === 'application/json'
         ? request.payload
-        : JSON.parse(request.payload), /* in case the Content-Type header has been forgotten */
-      uuid = generateUUID();
+        : JSON.parse(request.payload); /* in case the Content-Type header has been forgotten */
 
-      insert_parliament(uuid, function (err, result) {
+      if (parliament.nominations === undefined ||  parliament.nominations === null || parliament.nominations.length < 1) {
+        return reply().code(400);
+      }
+
+      var uuid = generateUUID(),
+          sql = 'INSERT INTO parliaments (uuid) VALUES (' + rds.escape(uuid) + ')';
+
+      rds.query(sql, function (err, result) {
         var parliament_id = result.insertId;
 
         parliament.nominations.forEach(function (nomination) {
@@ -27,9 +33,11 @@ module.exports.register = function (plugin, options, next) {
             insert_nomination(parliament_id, nomination.candidate.id, nomination.office.id);
 
           } else {
-           insert_candidate(nomination.candidate.name, function (err, result) {
-            insert_nomination(parliament_id, result.insertId, nomination.office.id);
-           });
+            var sql = 'INSERT INTO candidates (name) VALUES (' + rds.escape(nomination.candidate.name) + ')';
+
+            rds.query(sql, function (err, result) {
+              insert_nomination(parliament_id, result.insertId, nomination.office.id);
+            });
           }
         });
       });
@@ -42,6 +50,7 @@ module.exports.register = function (plugin, options, next) {
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
+
       var sql = [
         'SELECT offices.id office_id, offices.name office_name, candidates.id candidate_id, candidates.name candidate_name, candidates.image candidate_image, max(nomis) score',
         'FROM',
@@ -56,8 +65,7 @@ module.exports.register = function (plugin, options, next) {
       rds.query(sql, function (err, result) {
         if (err) reply().code(500);
         else {
-          var parliament = result.map(to_parliament);
-          reply(parliament);
+          reply( { nominations: result.map(to_nomination) } );
         }
       });
     }
@@ -74,19 +82,40 @@ module.exports.register = function (plugin, options, next) {
         'LEFT JOIN nominations ON parliaments.id = nominations.parliament_id',
         'LEFT JOIN candidates ON nominations.candidate_id = candidates.id',
         'LEFT JOIN offices ON nominations.office_id = offices.id',
-        'WHERE parliaments.uuid = "' + request.params.uuid + '"',
+        'WHERE parliaments.uuid = ' + rds.escape(request.params.uuid),
         'ORDER BY sort ASC'].join(' ');
 
       rds.query(sql, function (err, result) {
         if (err) reply().code(500);
         else {
-          var parliament = result.map(to_parliament);
-          reply(parliament);
+          reply( { nominations: result.map(to_nomination) } );
         }
       });
     }
   });
 
+
+  plugin.route({
+    method: 'DELETE',
+    path: '/{uuid}',
+    handler: function (request, reply) {
+
+      var sql = 'DELETE FROM nominations WHERE parliament_id = (SELECT id FROM parliaments WHERE uuid = ' + rds.escape(request.params.uuid) + ')';
+
+      rds.query(sql, function (err, result) {
+        if (err) reply().code(500);
+        else {
+
+          var sql = 'DELETE FROM parliaments WHERE uuid = ' + rds.escape(request.params.uuid);
+
+          rds.query(sql, function (err, result) {
+            if (err) reply().code(500);
+            else reply().code(204);
+          });
+        }
+      });
+    }
+  });
 };
 
 
@@ -106,12 +135,6 @@ function generateUUID () {
 }
 
 
-function insert_parliament (uuid, callback) {
-  var sql = 'INSERT INTO parliaments (uuid) VALUES ("' + uuid + '")';
-  rds.query(sql, callback);
-}
-
-
 function insert_nomination (parliament_id, candidate_id, office_id, callback) {
   var sql = [
     'INSERT INTO nominations (parliament_id, candidate_id, office_id)',
@@ -122,12 +145,10 @@ function insert_nomination (parliament_id, candidate_id, office_id, callback) {
 }
 
 
-function insert_candidate (name, callback) {
-  var sql = 'INSERT INTO candidates (name) VALUES (' + rds.escape(name) + ')';
-  rds.query(sql, callback);
-}
+function to_nomination (result) {
 
-function to_parliament (result) {
+  // if (result.candidate_id)
+
   return {
     office: {
       id: result.office_id,

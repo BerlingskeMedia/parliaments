@@ -12,6 +12,7 @@ module.exports.register = function (plugin, options, next) {
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
+      
       var sql = 'SELECT id, name, sort FROM offices ORDER BY sort ASC';
 
       rds.query(sql, function (err, offices) {
@@ -25,11 +26,11 @@ module.exports.register = function (plugin, options, next) {
     method: 'GET',
     path: '/{id}',
     handler: function (request, reply) {
-      var office_id = request.params.id;
+
       var sql = [
-        'SELECT candidates.id, candidates.name, count(nominations.id) AS score',
+        'SELECT candidates.id, candidates.name, candidates.image, count(nominations.id) AS score',
         'FROM candidates',
-        'LEFT JOIN nominations ON candidates.id = nominations.candidate_id AND nominations.office_id = ' + office_id,
+        'LEFT JOIN nominations ON candidates.id = nominations.candidate_id AND nominations.office_id = ' + rds.escape(request.params.id),
         'GROUP BY candidates.id',
         'ORDER BY score DESC'].join(' ');
 
