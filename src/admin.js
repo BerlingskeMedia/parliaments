@@ -1,4 +1,6 @@
-'use strict';
+/*jshint node: true */
+
+"use strict";
 
 
 module.exports.register = function (plugin, options, next) {

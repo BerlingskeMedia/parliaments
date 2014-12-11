@@ -1,6 +1,6 @@
 /*jshint node: true */
 
-'use strict';
+"use strict";
 
 var rds = require('./rds_client');
 
@@ -12,7 +12,7 @@ module.exports.register = function (plugin, options, next) {
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-      
+
       var sql = 'SELECT id, name, sort FROM offices ORDER BY sort ASC';
 
       rds.query(sql, function (err, offices) {

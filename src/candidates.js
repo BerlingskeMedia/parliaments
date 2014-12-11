@@ -1,6 +1,6 @@
 /*jshint node: true */
 
-'use strict';
+"use strict";
 
 var rds = require('./rds_client');
 

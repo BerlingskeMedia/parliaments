@@ -1,6 +1,6 @@
 /*jshint node: true */
 
-'use strict';
+"use strict";
 
 var rds = require('./rds_client');
 
@@ -13,9 +13,9 @@ module.exports.register = function (plugin, options, next) {
     path: '/',
     handler: function (request, reply) {
 
-      var parliament = request.mime === 'application/json'
-        ? request.payload
-        : JSON.parse(request.payload); /* in case the Content-Type header has been forgotten */
+      var parliament = request.mime === 'application/json' ?
+        request.payload :
+        JSON.parse(request.payload); /* in case the Content-Type header has been forgotten */
 
       if (parliament.nominations === undefined ||  parliament.nominations === null || parliament.nominations.length < 1) {
         return reply().code(400);
