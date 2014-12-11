@@ -17,7 +17,7 @@ module.exports.register = function (plugin, options, next) {
 
       rds.query(sql, function (err, offices) {
         if (err) reply().code(500);
-        else reply(offices);
+        else reply(offices.map(function (office) { return { office: office } } ));
       });
     }
   });

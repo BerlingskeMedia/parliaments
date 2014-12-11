@@ -1,28 +1,110 @@
 <!DOCTYPE html>
-<html ng-app lang="en">
-  <head>
-    <title>Parliaments Admin</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular-route.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular-resource.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="app.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12" ng-controller="candidatesCtrl">
+<html lang="en" ng-app="parliamentsAdminApp">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Parliaments Admin</title>
+  <meta name="description" content="">
+  <meta name="author" content="Daniel Kokott, Berlingske Media">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+  <!-- Custom -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-resource.min.js"></script>
+  <script src="app.js"></script>
+
+</head>
+<body>
+
+  <div style="top:0px; width: 100%; position:fixed; z-index:100; background-color:black;color:white;padding:10px;">
+    <a href="#kandidater">Kandidater</a> | <a href="#regeringer">Regeringer</a>
+  </div>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container" style="margin-top: 15%">
+    <div class="row" ng-controller="CandidatesController">
+      <div class="twelve columns">
+        <h4 id="kandidater">Kandidater</h4>
+        <button ng-click="show()" ng-hide="showCandidates">Vis</button>
+        <button ng-click="show(false)" ng-show="showCandidates">Skjul</button>
+        <div ng-show="showCandidates">
+          <label for="filterCandidates">Filter</label>
+          <input class="u-full-width" type="text" placeholder="Navn..." id="filterCandidates" ng-model="filterCandidates">
+          <table class="u-full-width">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Navn</th>
+                <th>Billede</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="candidate in candidates | filter:filterCandidates">
+                <td>{{candidate.id}}</td>
+                <td>{{candidate.name}}</td>
+                <td>{if<img src="{{candidate.image}}" title="{{candidate.image}}"></td>
+                <td><button class="button-primary" ng-click="delete(candidate.id, $index)">Slet</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-  </body>
+
+    <div class="row" ng-controller="ParliamentsController">
+      <div class="twelve columns">
+        <h4 id="regeringer">Regeringer</h4>
+        <button ng-click="show()" ng-hide="showParliaments">Vis</button>
+        <button ng-click="show(false)" ng-show="showParliaments">Skjul</button>
+        <div ng-show="showParliaments">
+          <label for="filterParliaments">Filter</label>
+          <input class="u-full-width" type="text" placeholder="Navn..." id="filterParliaments" ng-model="filterParliaments">
+          <table class="u-full-width">
+            <thead>
+              <tr>
+                <th>uuid</th>
+                <th>Antal kandidater</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="parliament in parliaments | filter:filterParliaments">
+                <td>{{parliament.uuid}}</td>
+                <td>{{parliament.candidates}}</td>
+                <td><button class="button-primary" ng-click="delete(parliament.uuid, $index)">Slet</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
 </html>

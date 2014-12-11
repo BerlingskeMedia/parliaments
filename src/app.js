@@ -10,7 +10,7 @@ var Hapi = require('hapi'),
     admin = require('./admin');
 
 
-var server = new Hapi.Server(8080, {
+var server = new Hapi.Server(8000, {
   router: {
     stripTrailingSlash: false
   },
