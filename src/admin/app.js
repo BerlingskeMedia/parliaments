@@ -6,19 +6,14 @@ parliamentsAdminApp.config(['$resourceProvider', function($resourceProvider) {
 }]);
 
 parliamentsAdminApp.controller('CandidatesController', function ($scope, $resource) {
+  $scope.showSection = false;
 
   var Candidates = $resource('/candidates/:candidateId', { candidateId: '@id' });
-
   $scope.candidates = Candidates.query();
 
-  $scope.showCandidates = false;
-  $scope.show = function (value) {
-    $scope.showCandidates = value !== undefined ? value : true;
-  };
-
-  $scope.delete = function (candidate_id, index) {
-    Candidates.delete( { candidateId: candidate_id }, function (data, headers) {
-      $scope.candidates.splice(index, index + 1);
+  $scope.deleteCandidate = function (candidate_id, index) {
+    Candidates.delete( { candidateId: candidate_id }, function () {
+      // $scope.candidates.splice(index, index + 1);
     });
   };
 });
@@ -26,18 +21,31 @@ parliamentsAdminApp.controller('CandidatesController', function ($scope, $resour
 
 parliamentsAdminApp.controller('ParliamentsController', function ($scope, $resource) {
 
-  var Parliaments = $resource('/parliaments/:parliamentUuid', {parliamentUuid: '@id' });
+  $scope.showSection = false;
 
+  var Parliaments = $resource('/parliaments/:parliamentUuid', {parliamentUuid: '@id' });
   $scope.parliaments = Parliaments.query( { parliamentUuid: 'all' } );
 
-  $scope.showParliaments = false;
-  $scope.show = function (value) {
-    $scope.showParliaments = value !== undefined ? value : true;
+  $scope.showParliament = function (parliament_uuid) {
+
   };
 
-  $scope.delete = function (parliament_uuid, index) {
-    Parliaments.delete( { parliamentUuid: parliament_uuid }, function (data, headers) {
-      $scope.parliaments.splice(index, index + 1);
+  $scope.deleteParliament = function (parliament_uuid, index) {
+    Parliaments.delete( { parliamentUuid: parliament_uuid }, function () {
+      // $scope.parliaments.splice(index, index + 1);
     });
+  };
+});
+
+
+parliamentsAdminApp.controller('OfficesController', function ($scope, $resource) {
+
+  var Offices = $resource('/offices/:officeId', {officeId: '@id' });
+  $scope.offices = Offices.query();
+  console.log($scope.offices);
+  $scope.showSection = false;
+
+  $scope.send = function (id, sort) {
+    console.log('SEND', id, sort);
   };
 });

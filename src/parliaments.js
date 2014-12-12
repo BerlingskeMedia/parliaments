@@ -22,22 +22,24 @@ module.exports.register = function (plugin, options, next) {
       }
 
       var uuid = generateUUID(),
-          sql = 'INSERT INTO parliaments (uuid) VALUES (' + rds.escape(uuid) + ')';
+          sql = 'INSERT INTO parliaments (uuid, created) VALUES (' + rds.escape(uuid) + ', ' + rds.escape(new Date().toISOString()) + ')';
 
       rds.query(sql, function (err, result) {
         var parliament_id = result.insertId;
 
         parliament.nominations.forEach(function (nomination) {
 
-          if (nomination.candidate.id) {
-            insert_nomination(parliament_id, nomination.candidate.id, nomination.office.id);
+          if (nomination.candidate) {
+            if (nomination.candidate.id) {
+              insert_nomination(parliament_id, nomination.candidate.id, nomination.office.id);
 
-          } else {
-            var sql = 'INSERT INTO candidates (name) VALUES (' + rds.escape(nomination.candidate.name) + ')';
+            } else {
+              var sql = 'INSERT INTO candidates (name) VALUES (' + rds.escape(nomination.candidate.name) + ')';
 
-            rds.query(sql, function (err, result) {
-              insert_nomination(parliament_id, result.insertId, nomination.office.id);
-            });
+              rds.query(sql, function (err, result) {
+                insert_nomination(parliament_id, result.insertId, nomination.office.id);
+              });
+            }
           }
         });
       });
@@ -91,13 +93,42 @@ module.exports.register = function (plugin, options, next) {
     }
   });
 
+
+  plugin.route({
+    method: 'POST',
+    path: '/{uuid}',
+    handler: function (request, reply) {
+
+      var name = request.mime === 'application/json' ?
+        request.payload.name :
+        JSON.parse(request.payload).name; /* in case the Content-Type header has been forgotten */
+
+      if (name === undefined || name === null) {
+        return reply().code(400);
+      }
+
+      var sql = [
+        'UPDATE parliaments',
+        'SET name = ' + rds.escape(name),
+        'WHERE uuid = ' + rds.escape(request.params.uuid)].join(' ');
+
+      rds.query(sql, function (err, result) {
+        if (err) reply().code(500);
+        else {
+          reply();
+        }
+      });
+    }
+  });
+
+
   plugin.route({
     method: 'GET',
     path: '/{uuid}',
     handler: function (request, reply) {
 
       var sql = [
-        'SELECT offices.id office_id, offices.name office_name, candidates.id candidate_id, candidates.name candidate_name, candidates.image candidate_image',
+        'SELECT parliaments.name parliament_name, offices.id office_id, offices.name office_name, candidates.id candidate_id, candidates.name candidate_name, candidates.image candidate_image',
         'FROM parliaments',
         'LEFT JOIN nominations ON parliaments.id = nominations.parliament_id',
         'LEFT JOIN candidates ON nominations.candidate_id = candidates.id',
@@ -107,35 +138,37 @@ module.exports.register = function (plugin, options, next) {
 
       rds.query(sql, function (err, result) {
         if (err) reply().code(500);
+        else if (result.length === 0)
+          reply().code(404);
         else {
-          reply( { nominations: result.map(to_nomination) } );
+          reply( { name: result[0].parliament_name, nominations: result.map(to_nomination) } );
         }
       });
     }
   });
 
 
-  plugin.route({
-    method: 'DELETE',
-    path: '/{uuid}',
-    handler: function (request, reply) {
+  // plugin.route({
+  //   method: 'DELETE',
+  //   path: '/{uuid}',
+  //   handler: function (request, reply) {
 
-      var sql = 'DELETE FROM nominations WHERE parliament_id = (SELECT id FROM parliaments WHERE uuid = ' + rds.escape(request.params.uuid) + ')';
+  //     var sql = 'DELETE FROM nominations WHERE parliament_id = (SELECT id FROM parliaments WHERE uuid = ' + rds.escape(request.params.uuid) + ')';
 
-      rds.query(sql, function (err, result) {
-        if (err) reply().code(500);
-        else {
+  //     rds.query(sql, function (err, result) {
+  //       if (err) reply().code(500);
+  //       else {
 
-          var sql = 'DELETE FROM parliaments WHERE uuid = ' + rds.escape(request.params.uuid);
+  //         var sql = 'DELETE FROM parliaments WHERE uuid = ' + rds.escape(request.params.uuid);
 
-          rds.query(sql, function (err, result) {
-            if (err) reply().code(500);
-            else reply().code(204);
-          });
-        }
-      });
-    }
-  });
+  //         rds.query(sql, function (err, result) {
+  //           if (err) reply().code(500);
+  //           else reply().code(204);
+  //         });
+  //       }
+  //     });
+  //   }
+  // });
 };
 
 

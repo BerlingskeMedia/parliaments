@@ -45,11 +45,12 @@ module.exports.register = function (plugin, options, next) {
     path: '/{id}',
     handler: function (request, reply) {
 
-      var sql = 'DELETE FROM candidates WHERE id = ' + rds.escape(request.params.id);
+      var sql = 'UPDATE candidates SET hidden = 1 WHERE id = ' + rds.escape(request.params.id);
       rds.query(sql, function (err, result) {
         if (err) reply().code(500);
         else reply().code(204);
       });
+
 
       // If we should delete all the parliaments with this candidate, we should do the following:
       // SELECT parliament_id FROM nominations WHERE candidate_id = ' + rds.escape(request.params.id) + '
