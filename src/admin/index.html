@@ -100,7 +100,7 @@
               <tr ng-repeat="office in offices | filter:filterOffices">
                 <td>{{office.office.id}}</td>
                 <td>{{office.office.name}}</td>
-                <td><input type="number" ng-model="office.office.sort" ng-blur="send()" max="100" min="1" /></td>
+                <td><input type="number" ng-model="office.office.sort" ng-blur="send(office.office.id, office.office.sort)" max="100" min="1" /></td>
               </tr>
             </tbody>
           </table>
