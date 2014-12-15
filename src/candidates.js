@@ -31,7 +31,7 @@ module.exports.register = function (plugin, options, next) {
     path: '/{id}',
     handler: function (request, reply) {
 
-      var sql = 'SELECT id, name, image FROM candidates WHERE id = ' + rds.escape(request.params.id);
+      var sql = 'SELECT id, name, image, hidden FROM candidates WHERE id = ' + rds.escape(request.params.id);
 
       rds.query(sql, function (err, candidate) {
         if (err) {
@@ -70,6 +70,8 @@ module.exports.register = function (plugin, options, next) {
       if (input.hidden !== undefined) {
         data.hidden = input.hidden;
       }
+
+      console.log('updating candidate', data);
 
       rds.update('candidates', data, function (err, result) {
         if (err) {

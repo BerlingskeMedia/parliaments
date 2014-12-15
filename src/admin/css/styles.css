@@ -1,5 +1,4 @@
 .container {
-  margin-top: 15%;
   margin-left:12%;
 }
 
@@ -44,6 +43,6 @@
   color: grey;
 }
 
-tr.hidden {
-  background-color: rgba(1, 1, 1, 0.8);
+h4 {
+  padding-top: 70px;
 }

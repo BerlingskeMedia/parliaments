@@ -6,18 +6,12 @@ parliamentsAdminApp.config(['$resourceProvider', function($resourceProvider) {
 }]);
 
 parliamentsAdminApp.controller('CandidatesController', function ($scope, $resource) {
-
   var Candidates = $resource('/candidates/:candidateId', { candidateId: '@id' });
   $scope.candidates = Candidates.query();
-
-  $scope.send = function (index) {
-    $scope.candidates[index].$save({candidateId:$scope.candidates[index].id});
-  };
 });
 
 
 parliamentsAdminApp.controller('ParliamentsController', function ($scope, $resource) {
-
   var Parliaments = $resource('/parliaments/:parliamentUuid', {parliamentUuid: '@id' });
   $scope.parliament = Parliaments.get();
   $scope.parliamentCount = Parliaments.get( { parliamentUuid: 'count' } );
@@ -25,11 +19,6 @@ parliamentsAdminApp.controller('ParliamentsController', function ($scope, $resou
 
 
 parliamentsAdminApp.controller('OfficesController', function ($scope, $resource) {
-
   var Offices = $resource('/offices/:officeId', {officeId: '@id' });
   $scope.offices = Offices.query();
-
-  $scope.send = function (index) {
-    $scope.offices[index].$save({officeId:$scope.offices[index].office.id});
-  };
 });

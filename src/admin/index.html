@@ -44,8 +44,6 @@
     <a href="#kandidater">Kandidater</a>
   </div>
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
 
     <div class="row" ng-controller="ParliamentsController">
@@ -86,8 +84,8 @@
           <tbody>
             <tr ng-repeat="office in offices">
               <td>{{office.office.id}}</td>
-              <td><input type="text" ng-model="office.office.name" ng-blur="send($index)" /></td>
-              <td><input type="number" ng-model="office.office.sort" ng-blur="send($index)" max="100" min="1" /></td>
+              <td><input type="text" style="width:90%;" ng-model="office.office.name" ng-blur="office.$save();" /></td>
+              <td><input type="number" ng-model="office.office.sort" ng-blur="office.$save();" max="100" min="1" /></td>
             </tr>
           </tbody>
         </table>
@@ -112,11 +110,14 @@
           <tbody>
             <tr ng-repeat="candidate in candidates | filter:filterCandidates" ng-class="{hidden: candidate.hidden}">
               <td>{{candidate.id}}</td>
-              <td>{{candidate.name}}</td>
-              <td><img src="{{candidate.image}}" title="{{candidate.image}}"></td>
+              <td><p>{{candidate.name}}</p>
+              <input type="text" style="width:90%;" ng-model="candidate.image" ng-blur="candidate.$save();" /></td>
+              <td><img src="{{candidate.image}}"></td>
               <td>
-                <button class="button-primary" ng-hide="candidate.hidden" ng-click="candidate.hidden = 1; send($index);">Vises</button>
-                <button class="button-primary" ng-show="candidate.hidden" ng-click="candidate.hidden = 0; send($index);">Skjult</button>
+                <label>
+                  <input type="checkbox" ng-model="candidate.hidden" ng-true-value="1" ng-false-value="0" ng-change="candidate.$save();">
+                  <span class="label-body">Skjult</span>
+                </label>
               </td>
             </tr>
           </tbody>
@@ -126,8 +127,5 @@
 
   </div>
 
-  </div>
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>

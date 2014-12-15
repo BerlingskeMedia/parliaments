@@ -37,6 +37,7 @@ module.exports.register = function (plugin, options, next) {
         'SELECT candidates.id, candidates.name, candidates.image, count(nominations.id) AS score',
         'FROM candidates',
         'LEFT JOIN nominations ON candidates.id = nominations.candidate_id AND nominations.office_id = ' + rds.escape(request.params.id),
+        'WHERE candidates.hidden = 0',
         'GROUP BY candidates.id',
         'ORDER BY score DESC'].join(' ');
 
@@ -51,18 +52,22 @@ module.exports.register = function (plugin, options, next) {
     }
   });
 
+
   /* Updates data about the given office. */
   plugin.route({
     method: 'POST',
-    path: '/{id}',
+    path: '/',
     handler: function (request, reply) {
 
-      var input = request.mime === 'application/json' ?
-        request.payload.office :
-        JSON.parse(request.payload).office; /* in case the Content-Type header has been forgotten */
+      var data = {},
+          input = request.mime === 'application/json' ?
+            request.payload.office :
+            JSON.parse(request.payload).office; /* in case the Content-Type header has been forgotten */
 
-      var data = {
-        id: request.params.id
+      if (input.id !== undefined) {
+        data.id = input.id;
+      } else {
+        return reply().code(400);
       }
 
       if (input.name !== undefined) {
@@ -72,6 +77,8 @@ module.exports.register = function (plugin, options, next) {
       if (input.sort !== undefined) {
         data.sort = input.sort;
       }
+
+      console.log('updating office', data);
 
       rds.update('offices', data, function (err, result) {
         if (err) {

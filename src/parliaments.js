@@ -75,27 +75,27 @@ module.exports.register = function (plugin, options, next) {
     }
   });
 
-  plugin.route({
-    method: 'GET',
-    path: '/all',
-    handler: function (request, reply) {
+  // plugin.route({
+  //   method: 'GET',
+  //   path: '/all',
+  //   handler: function (request, reply) {
 
-      var sql = [
-        'SELECT parliaments.id, parliaments.uuid, count(nominations.id) candidates',
-        'FROM parliaments',
-        'LEFT JOIN nominations on nominations.parliament_id = parliaments.id',
-        'GROUP BY parliaments.id'].join(' ');
+  //     var sql = [
+  //       'SELECT parliaments.id, parliaments.uuid, count(nominations.id) candidates',
+  //       'FROM parliaments',
+  //       'LEFT JOIN nominations on nominations.parliament_id = parliaments.id',
+  //       'GROUP BY parliaments.id'].join(' ');
 
-      rds.query(sql, function (err, result) {
-        if (err) {
-          console.log(err);
-          reply().code(500);
-        } else {
-          reply(result);
-        }
-      });
-    }
-  });
+  //     rds.query(sql, function (err, result) {
+  //       if (err) {
+  //         console.log(err);
+  //         reply().code(500);
+  //       } else {
+  //         reply(result);
+  //       }
+  //     });
+  //   }
+  // });
 
   plugin.route({
     method: 'GET',
