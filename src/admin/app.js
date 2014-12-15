@@ -10,10 +10,8 @@ parliamentsAdminApp.controller('CandidatesController', function ($scope, $resour
   var Candidates = $resource('/candidates/:candidateId', { candidateId: '@id' });
   $scope.candidates = Candidates.query();
 
-  $scope.hideCandidate = function (candidate_id, index) {
-    Candidates.delete( { candidateId: candidate_id }, function () {
-      //$scope.candidates
-    });
+  $scope.send = function (index) {
+    $scope.candidates[index].$save({candidateId:$scope.candidates[index].id});
   };
 });
 

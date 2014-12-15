@@ -125,7 +125,7 @@ module.exports.register = function (plugin, options, next) {
         request.payload.name :
         JSON.parse(request.payload).name; /* in case the Content-Type header has been forgotten */
 
-      if (name === undefined || name === null) {
+      if (name === undefined) {
         return reply().code(400);
       }
 

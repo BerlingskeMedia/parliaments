@@ -112,9 +112,12 @@
           <tbody>
             <tr ng-repeat="candidate in candidates | filter:filterCandidates" ng-class="{hidden: candidate.hidden}">
               <td>{{candidate.id}}</td>
-              <td>{{candidate.name}} {{candidate.hidden}}</td>
+              <td>{{candidate.name}}</td>
               <td><img src="{{candidate.image}}" title="{{candidate.image}}"></td>
-              <td><button class="button-primary" ng-click="hideCandidate(candidate.id, $index)">Skjul</button></td>
+              <td>
+                <button class="button-primary" ng-hide="candidate.hidden" ng-click="candidate.hidden = 1; send($index);">Vises</button>
+                <button class="button-primary" ng-show="candidate.hidden" ng-click="candidate.hidden = 0; send($index);">Skjult</button>
+              </td>
             </tr>
           </tbody>
         </table>

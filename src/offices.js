@@ -65,11 +65,11 @@ module.exports.register = function (plugin, options, next) {
         id: request.params.id
       }
 
-      if (input.name) {
+      if (input.name !== undefined) {
         data.name = input.name;
       }
 
-      if (input.sort) {
+      if (input.sort !== undefined) {
         data.sort = input.sort;
       }
 
