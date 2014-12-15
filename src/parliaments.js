@@ -65,8 +65,10 @@ module.exports.register = function (plugin, options, next) {
         'ORDER BY sort ASC'].join(' ');
 
       rds.query(sql, function (err, result) {
-        if (err) reply().code(500);
-        else {
+        if (err) {
+          console.log(err);
+          reply().code(500);
+        } else {
           reply( { nominations: result.map(to_nomination) } );
         }
       });
@@ -85,9 +87,29 @@ module.exports.register = function (plugin, options, next) {
         'GROUP BY parliaments.id'].join(' ');
 
       rds.query(sql, function (err, result) {
-        if (err) reply().code(500);
-        else {
+        if (err) {
+          console.log(err);
+          reply().code(500);
+        } else {
           reply(result);
+        }
+      });
+    }
+  });
+
+  plugin.route({
+    method: 'GET',
+    path: '/count',
+    handler: function (request, reply) {
+
+      var sql = 'SELECT count(id) as count FROM parliaments';
+
+      rds.query(sql, function (err, result) {
+        if (err) {
+          console.log(err);
+          reply().code(500);
+        } else {
+          reply(result[0]);
         }
       });
     }
@@ -113,8 +135,10 @@ module.exports.register = function (plugin, options, next) {
         'WHERE uuid = ' + rds.escape(request.params.uuid)].join(' ');
 
       rds.query(sql, function (err, result) {
-        if (err) reply().code(500);
-        else {
+        if (err) {
+          console.log(err);
+          reply().code(500);
+        } else {
           reply();
         }
       });
@@ -137,10 +161,12 @@ module.exports.register = function (plugin, options, next) {
         'ORDER BY sort ASC'].join(' ');
 
       rds.query(sql, function (err, result) {
-        if (err) reply().code(500);
-        else if (result.length === 0)
+        if (err) {
+          console.log(err);
+          reply().code(500);
+        } else if (result.length === 0) {
           reply().code(404);
-        else {
+        } else {
           reply( { name: result[0].parliament_name, nominations: result.map(to_nomination) } );
         }
       });
@@ -199,7 +225,7 @@ function insert_nomination (parliament_id, candidate_id, office_id, callback) {
 
 
 function to_nomination (result) {
-  return {
+  var nomination = {
     office: {
       id: result.office_id,
       name: result.office_name
@@ -210,4 +236,9 @@ function to_nomination (result) {
       image: result.candidate_image
     }
   };
+
+  if (result.score) {
+    nomination.score = result.score;
+  }
+  return nomination;
 }

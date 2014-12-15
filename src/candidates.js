@@ -13,11 +13,15 @@ module.exports.register = function (plugin, options, next) {
     path: '/',
     handler: function (request, reply) {
 
-      var sql = 'SELECT id, name, image FROM candidates';
+      var sql = 'SELECT id, name, image, hidden FROM candidates';
 
       rds.query(sql, function (err, candidates) {
-        if (err) reply().code(500);
-        else reply(candidates);
+        if (err) {
+          console.log(err);
+          reply().code(500);
+        } else {
+          reply(candidates);
+        }
       });
     }
   });
@@ -30,8 +34,10 @@ module.exports.register = function (plugin, options, next) {
       var sql = 'SELECT id, name, image FROM candidates WHERE id = ' + rds.escape(request.params.id);
 
       rds.query(sql, function (err, candidate) {
-        if (err)
+        if (err) {
+          console.log(err);
           reply().code(500);
+        }
         else if (candidate.length !== 1)
           reply().code(404);
         else
@@ -62,8 +68,12 @@ module.exports.register = function (plugin, options, next) {
       }
 
       rds.update('candidates', data, function (err, result) {
-        if (err) reply().code(500);
-        else reply();
+        if (err) {
+          console.log(err);
+          reply().code(500);
+        } else {
+          reply();
+        }
       });
     }
   });
@@ -75,8 +85,12 @@ module.exports.register = function (plugin, options, next) {
 
       var sql = 'UPDATE candidates SET hidden = 1 WHERE id = ' + rds.escape(request.params.id);
       rds.query(sql, function (err, result) {
-        if (err) reply().code(500);
-        else reply().code(204);
+        if (err) {
+          console.log(err);
+          reply().code(500);
+        } else {
+          reply().code(204);
+        }
       });
 
 

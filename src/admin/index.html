@@ -39,102 +39,88 @@
 <body>
 
   <div id="navigation">
-    <a href="#top">Top</a>
-    <a href="#kandidater">Kandidater</a>
-    <a href="#offices">Ministerier</a>
     <a href="#regeringer">Regeringer</a>
+    <a href="#offices">Ministerier</a>
+    <a href="#kandidater">Kandidater</a>
   </div>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div id="top" class="container">
-    <div class="row" ng-controller="CandidatesController">
+  <div class="container">
+
+    <div class="row" ng-controller="ParliamentsController">
       <div class="twelve columns">
-        <h4 id="kandidater">Kandidater</h4>
-        <button ng-click="showSection = !showSection" ng-hide="showSection">Vis</button>
-        <button ng-click="showSection = !showSection" ng-show="showSection">Skjul</button>
-        <div ng-show="showSection">
-          <label for="filterCandidates">Filter</label>
-          <input class="u-full-width" type="text" placeholder="Navn..." id="filterCandidates" ng-model="filterCandidates">
-          <table class="u-full-width">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Navn</th>
-                <th>Billede</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="candidate in candidates | filter:filterCandidates">
-                <td>{{candidate.id}}</td>
-                <td>{{candidate.name}}</td>
-                <td><img src="{{candidate.image}}" title="{{candidate.image}}"></td>
-                <td><button class="button-primary" ng-click="deleteCandidate(candidate.id, $index)">Slet</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <h4 id="regeringer">Regeringer</h4>
+        <p>{{parliamentCount.count}} regeringer oprettet.</p>
+        <p>Nedenstående tabel viser favoriter:</p>
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Ministerie</th>
+              <th>Kandidat</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="nomination in parliament.nominations">
+              <td>{{nomination.office.name}}</td>
+              <td>{{nomination.candidate.name}}</td>
+              <td>{{nomination.score}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
     <div class="row" ng-controller="OfficesController">
       <div class="twelve columns">
         <h4 id="offices">Ministerier</h4>
-        <button ng-click="showSection = !showSection" ng-hide="showSection">Vis</button>
-        <button ng-click="showSection = !showSection" ng-show="showSection">Skjul</button>
-        <div ng-show="showSection">
-          <p>Sort</p>
-          <label for="filterOffices">Filter</label>
-          <input class="u-full-width" type="text" placeholder="Navn..." id="filterOffices" ng-model="filterOffices">
-          <table class="u-full-width">
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>Navn</th>
-                <th>Sort</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="office in offices | filter:filterOffices">
-                <td>{{office.office.id}}</td>
-                <td>{{office.office.name}}</td>
-                <td><input type="number" ng-model="office.office.sort" ng-blur="send(office.office.id, office.office.sort)" max="100" min="1" /></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Navn</th>
+              <th>Sort</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="office in offices">
+              <td>{{office.office.id}}</td>
+              <td><input type="text" ng-model="office.office.name" ng-blur="send($index)" /></td>
+              <td><input type="number" ng-model="office.office.sort" ng-blur="send($index)" max="100" min="1" /></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <div class="row" ng-controller="ParliamentsController">
+    <div class="row" ng-controller="CandidatesController">
       <div class="twelve columns">
-        <h4 id="regeringer">Regeringer</h4>
-        <button ng-click="showSection = !showSection" ng-hide="showSection">Vis</button>
-        <button ng-click="showSection = !showSection" ng-show="showSection">Skjul</button>
-        <div ng-show="showSection">
-          <label for="filterParliaments">Filter</label>
-          <input class="u-full-width" type="text" placeholder="Navn..." id="filterParliaments" ng-model="filterParliaments">
-          <table class="u-full-width">
-            <thead>
-              <tr>
-                <th>uuid</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="parliament in parliaments | filter:filterParliaments">
-                <td>{{parliament.uuid}}</td>
-                <td><button ng-click="showParliament(parliament.id)">Vis</button></td>
-                <td><button class="button-primary" ng-click="deleteParliament(parliament.uuid, $index)">Slet</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <h4 id="kandidater">Kandidater</h4>
+        <label for="filterCandidates">Filter</label>
+        <input class="u-full-width" type="text" placeholder="Navn..." id="filterCandidates" ng-model="filterCandidates">
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Navn</th>
+              <th>Billede</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="candidate in candidates | filter:filterCandidates" ng-class="{hidden: candidate.hidden}">
+              <td>{{candidate.id}}</td>
+              <td>{{candidate.name}} {{candidate.hidden}}</td>
+              <td><img src="{{candidate.image}}" title="{{candidate.image}}"></td>
+              <td><button class="button-primary" ng-click="hideCandidate(candidate.id, $index)">Skjul</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+
   </div>
 
   </div>

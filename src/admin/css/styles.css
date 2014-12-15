@@ -42,4 +42,8 @@
 
 #navigation a:hover {
   color: grey;
-} 
+}
+
+tr.hidden {
+  background-color: rgba(1, 1, 1, 0.8);
+}
