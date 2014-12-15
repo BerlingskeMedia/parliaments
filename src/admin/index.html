@@ -84,8 +84,8 @@
           <tbody>
             <tr ng-repeat="office in offices">
               <td>{{office.office.id}}</td>
-              <td><input type="text" style="width:90%;" ng-model="office.office.name" ng-blur="office.$save();" /></td>
-              <td><input type="number" ng-model="office.office.sort" ng-blur="office.$save();" max="100" min="1" /></td>
+              <td><input type="text" style="width:90%;" ng-model="office.office.name" ng-change="office.$save();" /></td>
+              <td><input type="number" ng-model="office.office.sort" ng-change="office.$save();" max="100" min="1" /></td>
             </tr>
           </tbody>
         </table>
@@ -111,7 +111,7 @@
             <tr ng-repeat="candidate in candidates | filter:filterCandidates" ng-class="{hidden: candidate.hidden}">
               <td>{{candidate.id}}</td>
               <td><p>{{candidate.name}}</p>
-              <input type="text" style="width:90%;" ng-model="candidate.image" ng-blur="candidate.$save();" /></td>
+              <input type="text" style="width:90%;" ng-model="candidate.image" ng-change="candidate.$save();" /></td>
               <td><img src="{{candidate.image}}"></td>
               <td>
                 <label>
