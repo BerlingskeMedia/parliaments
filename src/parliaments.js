@@ -199,9 +199,6 @@ function insert_nomination (parliament_id, candidate_id, office_id, callback) {
 
 
 function to_nomination (result) {
-
-  // if (result.candidate_id)
-
   return {
     office: {
       id: result.office_id,

@@ -41,6 +41,34 @@ module.exports.register = function (plugin, options, next) {
   });
 
   plugin.route({
+    method: 'POST',
+    path: '/{id}',
+    handler: function (request, reply) {
+
+      var input = request.mime === 'application/json' ?
+        request.payload :
+        JSON.parse(request.payload); /* in case the Content-Type header has been forgotten */
+
+      var data = {
+        id: request.params.id
+      }
+
+      if (input.name) {
+        data.name = input.name;
+      }
+
+      if (input.image) {
+        data.image = input.image;
+      }
+
+      rds.update('candidates', data, function (err, result) {
+        if (err) reply().code(500);
+        else reply();
+      });
+    }
+  });
+
+  plugin.route({
     method: 'DELETE',
     path: '/{id}',
     handler: function (request, reply) {
