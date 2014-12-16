@@ -54,14 +54,16 @@ module.exports.register = function (plugin, options, next) {
     handler: function (request, reply) {
 
       var sql = [
-        'SELECT offices.id office_id, offices.name office_name, candidates.id candidate_id, candidates.name candidate_name, candidates.image candidate_image, max(nomis) score',
+        'SELECT *',
         'FROM',
-          '(SELECT office_id, candidate_id, COUNT(candidate_id) nomis',
+          '(SELECT office_id, offices.name office_name, sort, candidate_id, candidates.name candidate_name, candidates.image candidate_image, COUNT(candidate_id) score',
           'FROM nominations',
-          'GROUP BY office_id, candidate_id) candidate_nominations',
-        'LEFT JOIN offices ON offices.id = candidate_nominations.office_id',
-        'LEFT JOIN candidates ON candidates.id = candidate_nominations.candidate_id',
+          'JOIN candidates ON hidden = 0 AND candidates.id = nominations.candidate_id',
+          'LEFT JOIN offices ON offices.id = nominations.office_id',
+          'GROUP BY office_id, candidate_id',
+          'ORDER BY offices.sort ASC, score DESC) AS candidate_nominations',
         'GROUP BY office_id',
+        'HAVING MAX(score)',
         'ORDER BY sort ASC'].join(' ');
 
       rds.query(sql, function (err, result) {

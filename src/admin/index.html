@@ -51,6 +51,7 @@
         <h4 id="regeringer">Regeringer</h4>
         <p>{{parliamentCount.count}} regeringer oprettet.</p>
         <p>Nedenstående tabel viser favoritter:</p>
+        <button ng-click="get()">Refresh</button>
         <table class="u-full-width">
           <thead>
             <tr>
@@ -73,6 +74,7 @@
     <div class="row" ng-controller="OfficesController">
       <div class="twelve columns">
         <h4 id="offices">Ministerier</h4>
+        <button ng-click="get()">Refresh</button>
         <table class="u-full-width">
           <thead>
             <tr>
@@ -95,8 +97,11 @@
     <div class="row" ng-controller="CandidatesController">
       <div class="twelve columns">
         <h4 id="kandidater">Kandidater</h4>
-        <label for="filterCandidates">Filter</label>
-        <input class="u-full-width" type="text" placeholder="Navn..." id="filterCandidates" ng-model="filterCandidates">
+        <span>
+          <button ng-click="get()">Refresh</button>
+          <label for="filterCandidates">Filter</label>
+          <input class="u-full-width" type="text" placeholder="Navn..." id="filterCandidates" ng-model="filterCandidates">
+        </span>
         <table class="u-full-width">
           <thead>
             <tr>

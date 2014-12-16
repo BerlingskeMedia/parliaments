@@ -7,18 +7,33 @@ parliamentsAdminApp.config(['$resourceProvider', function($resourceProvider) {
 
 parliamentsAdminApp.controller('CandidatesController', function ($scope, $resource) {
   var Candidates = $resource('/candidates/:candidateId', { candidateId: '@id' });
-  $scope.candidates = Candidates.query();
+
+  $scope.get = function () {
+    $scope.candidates = Candidates.query();
+  };
+
+  $scope.get();
 });
 
 
 parliamentsAdminApp.controller('ParliamentsController', function ($scope, $resource) {
   var Parliaments = $resource('/parliaments/:parliamentUuid', {parliamentUuid: '@id' });
-  $scope.parliament = Parliaments.get();
-  $scope.parliamentCount = Parliaments.get( { parliamentUuid: 'count' } );
+
+  $scope.get = function () {
+    $scope.parliamentCount = Parliaments.get( { parliamentUuid: 'count' } );
+    $scope.parliament = Parliaments.get();
+  };
+
+  $scope.get();
 });
 
 
 parliamentsAdminApp.controller('OfficesController', function ($scope, $resource) {
   var Offices = $resource('/offices/:officeId', {officeId: '@id' });
-  $scope.offices = Offices.query();
+
+  $scope.get = function () {
+    $scope.offices = Offices.query();
+  };
+
+  $scope.get();
 });
