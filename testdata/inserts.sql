@@ -338,7 +338,6 @@ INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 10, 
 INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 10, 121);
 
 -- Klimaminister 11
-
 -- 88  Rasmus Helveg Petersen (R), politiker
 INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 11, 88);
 -- 24  Connie Hedegaard (K), tidl. klimakommissær
@@ -353,7 +352,6 @@ INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 11, 
 INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 11, 124);
 
 -- Kulturminister 12
-
 -- 68  Marianne Jelved (R), politiker
 INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 12, 68);
 -- 98  Uffe Elbæk (Alternativet), politiker
