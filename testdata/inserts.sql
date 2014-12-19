@@ -240,8 +240,8 @@ INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 3, 7
 INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 3, 106);
 
 -- Finansminister 4
--- 103 Bjarne Corydon (S), politiker
-INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 4, 103);
+-- 13 Bjarne Corydon (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 4, 13);
 -- 107 Peter Christensen (V), politiker
 INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 4, 107);
 -- 108 Frank Aaen (EL), politiker
