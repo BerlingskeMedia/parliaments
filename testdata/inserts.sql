@@ -199,3 +199,324 @@ INSERT INTO candidates (name) VALUES ("Ulrik Kjær, kommunalforsker");
 INSERT INTO candidates (name) VALUES ("Dennis Kristensen, formand for FOA");
 
 -- INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (1, (SELECT id FROM offices WHERE name="Beskæftigelsesminister"), (SELECT id FROM candidates WHERE name ="Henrik Dam Kristensen, politiker"));
+-- INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, XXX, XXX);
+
+SELECT office_id, offices.name office_name, sort, candidate_id, candidates.name candidate_name, COUNT(candidate_id) score
+FROM nominations
+JOIN candidates ON hidden = 0 AND candidates.id = nominations.candidate_id
+LEFT JOIN offices ON offices.id = nominations.office_id
+WHERE nominations.parliament_id = 0
+GROUP BY office_id, candidate_id
+ORDER BY offices.sort ASC, score DESC
+
+
+
+-- Beskæftigelsesminister 1
+-- 38  Henrik Dam Kristensen (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 1, 38);
+-- 43  Inger Støjberg (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 1, 43);
+-- 6   Asger Aamund, erhvervsmand
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 1, 6);
+-- 102 Bettina Post, debattør og tidl. formand for Dansk Socialrådgiverforening
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 1, 102);
+-- 103 Per Christensen, 3F-formand
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 1, 103);
+-- 104 Peter Christian Jensen, adm. direktør på Ruths Hotel på Skagen
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 1, 104);
+
+-- Erhvervsminister 3
+-- 40  Henrik Sass Larsen (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 3, 40);
+-- 22  Claus Hjort Frederiksen (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 3, 22);
+-- 105 Claus Jensen, formand for Dansk Metal
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 3, 105);
+-- 50  Karsten Dybvad, adm. direktør for Dansk Industri
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 3, 50);
+-- 72  Martin Thorborg, serieiværksætter
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 3, 72);
+-- 106 Morten Ryom, socialdemokrat og tidl. formand for Erhvervsskolernes Elevorganisation
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 3, 106);
+
+-- Finansminister 4
+-- 103 Bjarne Corydon (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 4, 103);
+-- 107 Peter Christensen (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 4, 107);
+-- 108 Frank Aaen (EL), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 4, 108);
+-- 33  Hans Jørgen Whitta-Jacobsen, overvismand
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 4, 33);
+-- 18 Christian Clausen, Nordea-koncernchef
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 4, 18);
+-- 109 Christen Sørensen, S-folketingskandidat og tidl. overvismand
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 4, 109);
+
+-- Forskningsminister 5
+-- 91  Sofie Carsten Nielsen (R), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 5, 91);
+-- 63  Lykke Friis, prorektor og tidl. politiker for Venstre
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 5, 63);
+-- 110 Michael Christiansen, formand for Aarhus Universitet
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 5, 110);
+-- 64  Mads Krogsgaard Thomsen, forskningsdirektør i Novo Nordisk
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 5, 64);
+-- 29  Eske Willerslev, forsker og professor
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 5, 29);
+-- 111 Peter Lund Madsen, radiovært og hjerneforsker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 5, 111);
+
+-- Forsvarsminister 6
+-- 82  Nikolaj Wammen (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 6, 82);
+-- 92  Søren Gade, tidl. minister
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 6, 92);
+-- 8   Benjamin Yeh, talsmand for krigsveteraner
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 6, 8);
+-- 58  Lars Møller. tidl. oberst
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 6, 58);
+-- 2   Anders Fogh Rasmussen (V), tidl. NATO-generalsekretær
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 6, 2);
+-- 7   B. S. Christiansen, tidl. jægersoldat
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 6, 7);
+
+-- Fødevareminister 7
+-- 25  Dan Jørgensen (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 7, 25);
+-- 39  Henrik Høegh (V), politiker og tidl. minister
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 7, 39);
+-- 48  Karen Hækkerup, direktør i Landbrug og Fødevarer
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 7, 48);
+-- 89  Rene Redzepi, Michelin-kok
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 7, 89);
+-- 31  Frank Erichsen, “Bonderøven”
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 7, 31);
+-- 90  Selina Juul, madspildsbekæmper
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 7, 90);
+
+-- Integrationsminister 8
+-- 66  Manu Sareen (R), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 8, 66);
+-- 43  Inger Støjberg (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 8, 43);
+-- 69  Martin Henriksen (DF), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 8, 69);
+-- 112 Johanne Schmidt-Nielsen (EL), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 8, 112);
+-- 113 Andreas Kamm, generalsekretær i Dansk Flygtningehjælp
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 8, 113);
+-- 114 Yahya Hassan, digter
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 8, 114);
+
+-- Justitsminister 9
+-- 73  Mette Frederiksen (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 9, 73);
+-- 115 Peter Skaarup (DF), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 9, 115);
+-- 116 Pernille Skipper, (EL), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 9, 116);
+-- 44  Jacob Mchangama, jurist og tænketanksdirektør
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 9, 44);
+-- 117 Knud Foldschack, advokat
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 9, 117);
+-- 118 Malene Duus, kronikør og voldsoffer
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 9, 118);
+
+-- Kirkeminister 10
+-- 68  Marianne Jelved (R), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 10, 68);
+-- 11  Birthe Rønn Hornbech (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 10, 11);
+-- 28  Erik Normann Svendsen, kongelig konfessionarius
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 10, 28);
+-- 119 Jair Melchior, rabiner og leder af Mosaisk Trossamfund
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 10, 119);
+-- 120 Anders Stjernholm, komiker og talsmand for Ateistisk Selskab
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 10, 120);
+-- 121 Kathrine Lilleør, debattør og præst
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 10, 121);
+
+-- Klimaminister 11
+
+-- 88  Rasmus Helveg Petersen (R), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 11, 88);
+-- 24  Connie Hedegaard (K), tidl. klimakommissær
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 11, 24);
+-- 75  Morten Albæk, filosof og Vestas-direktør
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 11, 75);
+-- 122 Kathrine Richardson, tidl. formand for Klimakommissionen
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 11, 122);
+-- 123 Jakob Thomasen, direktør i Mærsk Oil
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 11, 123);
+-- 124 Bo Lidegaard, chefredaktør og tidl. leder af klimasekretariat i Statsministeriet
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 11, 124);
+
+-- Kulturminister 12
+
+-- 68  Marianne Jelved (R), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 12, 68);
+-- 98  Uffe Elbæk (Alternativet), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 12, 98);
+-- 16  Brian Mikkelsen (K), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 12, 16);
+-- 15  Bjørn Nørgaard, kunstner
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 12, 15);
+-- 86  Peter Aalbæk Jensen, filmproducent
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 12, 86);
+-- 125 Pia Kjærsgaard (DF), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 12, 125);
+
+-- Miljøminister 13
+-- 52  Kirsten Brosbøl (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 13, 52);
+-- 42  Ida Auken (R), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 13, 42);
+-- 126 Gitte Seeberg, generalsekretær i Verdensnaturfonden
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 13, 126);
+-- 97  Troels Lund Poulsen (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 13, 97);
+-- 14  Bjørn Lomborg, tænketanksdirektør 
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 13, 14);
+-- 27  Ella Maria Bisschop-Larsen, præsident for Danmarks Naturfredningsforening
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 13, 27);
+
+-- Boligminister 2
+-- 17  Carsten Hansen (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 2, 17);
+-- 127 Benedikte Kiær (K), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 2, 127);
+-- 12  Bjarke Ingels, arkitekt
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 2, 12);
+-- 128 Helene Toxværd, formand for lejernes LO
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 2, 128);
+-- 95  Søren Pind (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 2, 95);
+-- 77  Morten Kabell (EL), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 2, 77);
+
+-- Socialminister 14
+-- 66  Manu Sareen (R), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 14, 66);
+-- 129 Ellen Trane Nørby (V), poltiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 14, 129);
+-- 61  Lisbeth Zornig Andersen, konsulent og tidl. formand for Børnerådet
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 14, 61);
+-- 46  Joachim B. Olsen (LA), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 14, 46);
+-- 101 Özlem Cekic (SF), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 14, 101);
+-- 53  Kirsten Ketcher, professor i socialret
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 14, 53);
+
+-- Sundhedsminister 15
+-- 80  Nick Hækkerup (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 15, 80);
+-- 130 Carl Holst (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 15, 130);
+-- 131 Camilla Hersom (R), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 15, 131);
+-- 132 Torben Mogensen, vicedirektør på Hvidovre Hospital
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 15, 132);
+-- 133 Christian Bitz, tv-vært
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 15, 133);
+-- 134 Kim Larsen, musiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 15, 134);
+
+-- Skatteminister 16
+-- 9   Benny Engelbrecht (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 16, 9);
+-- 135 Kristian Jensen (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 16, 135);
+-- 112 Johanne Schmidt-Nielsen (EL), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 16, 112);
+-- 136 Torben Bagge, skatteadvokat
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 16, 136);
+-- 137 Bo Sandemann, professor i nationaløkonomi
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 16, 137);
+-- 138 Kurt Scheelsbeck (K), formand for Skatteborgerforeningen
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 16, 138);
+
+-- Statsminister 17
+-- 37  Helle Thorning-Schmidt (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 17, 37);
+-- 57  Lars Løkke Rasmussen (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 17, 57);
+-- 73  Mette Frederiksen (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 17, 73);
+-- 65  Kristian Thulesen Dahl (DF), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 17, 65);
+-- 79  Morten Østergaard (R), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 17, 79);
+-- 47  Jørgen Vig Knudstorp, Lego-direktør
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 17, 47);
+
+-- Transportminister 18
+-- 65  Magnus Heunicke (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 18, 65);
+-- 87  Pia Olsen Dyhr (SF), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 18, 87);
+-- 32  Hans Christian Schmidt (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 18, 32);
+-- 55  Klaus Bondam, direktør i Cyklistforbundet
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 18, 55);
+-- 139 Nikolaj Wendelboe, adm. direktør i Arriva
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 18, 139);
+-- 140 Morten Søndergaard, tillidsmand i Post Danmark
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 18, 140);
+
+-- Udenrigsminister 19
+-- 70  Martin Lidegaard (R), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 19, 70);
+-- 95  Søren Pind (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 19, 95);
+-- 141 Mogens Lykketoft (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 19, 141);
+-- 63  Lykke Friis, prorektor og tidl. politiker for Venstre
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 19, 63);
+-- 142 Peter Viggo Jakobsen, lektor ved Forsvarsakademiet
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 19, 142);
+-- 143 Peder Tuborgh, adm. direktør i Arla
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 19, 143);
+
+-- Udviklingsminister 20
+-- 74  Mogens Jensen (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 20, 74);
+-- 19, Christian Friis-Bach, leder af FN's Økonomiske Kommission for Europa (UNECE)
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 20, 19);
+-- 144 Trine Pertou Mach (SF), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 20, 144);
+-- 69  Martin Henriksen (DF), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 20, 69);
+-- 3   Anders Ladekarl, generalsekretær for Røde Kors
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 20, 3);
+-- 14  Bjørn Lomborg, tænketanksdirektør
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 20, 14);
+
+-- Undervisningsminister 21
+-- 145 Christine Antorini (S), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 21, 145);
+-- 146 Bertel Haarder (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 21, 146);
+-- 147 Niels Egelund, professor
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 21, 147);
+-- 148 Anders Bondo Christensen, formand for Danmarks Lærerforening
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 21, 148);
+-- 149 Michael Ziegler (K), borgmester
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 21, 149);
+-- 150 Miranda Wernay Dagsson, formand for Danske Skoleelever
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 21, 150);
+
+-- Økonomi- og indenrigsminister 22
+-- 79  Morten Østergaard (R), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 22, 79);
+-- 22  Claus Hjort Frederiksen (V), politiker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 22, 22);
+-- 10  Bent Hansen (S), formand for Danske Regioner
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 22, 10);
+-- 151 Martin Damm (V), formand for KL
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 22, 151);
+-- 152 Ulrik Kjær, kommunalforsker
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 22, 152);
+-- 153 Dennis Kristensen, formand for FOA
+INSERT INTO nominations (parliament_id, office_id, candidate_id) VALUES (0, 22, 153);

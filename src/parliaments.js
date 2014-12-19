@@ -33,7 +33,7 @@ module.exports.register = function (plugin, options, next) {
             if (nomination.candidate.id) {
               insert_nomination(parliament_id, nomination.candidate.id, nomination.office.id);
 
-            } else {
+            } else if (nomination.candidate.name !== '') {
               var sql = 'INSERT INTO candidates (name) VALUES (' + rds.escape(nomination.candidate.name) + ')';
 
               rds.query(sql, function (err, result) {
