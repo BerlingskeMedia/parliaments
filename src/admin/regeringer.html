@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="parliamentsAdminApp">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Parliaments Admin</title>
+  <meta name="description" content="">
+  <meta name="author" content="Daniel Kokott, Berlingske Media">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+  <!-- Custom -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-resource.min.js"></script>
+  <script src="/admin/app.js"></script>
+
+</head>
+<body>
+
+  <div id="navigation">
+    <a href="regeringer.html">Regeringer</a>
+    <a href="ministerier.html">Ministerier</a>
+    <a href="kandidater.html">Kandidater</a>
+  </div>
+
+  <div class="container">
+    <div class="row" ng-controller="ParliamentsController">
+      <div class="twelve columns">
+        <h4 id="regeringer">Regeringer</h4>
+        <p>{{parliamentCount.count}} regeringer oprettet.</p>
+        <p>Nedenstående tabel viser favoritter:</p>
+        <button ng-click="get()">Refresh</button>
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Ministerie</th>
+              <th>Kandidat</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="nomination in parliament.nominations">
+              <td>{{nomination.office.name}}</td>
+              <td>{{nomination.candidate.name}} (Id: {{nomination.candidate.id}})</td>
+              <td>{{nomination.score}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

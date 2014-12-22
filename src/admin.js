@@ -11,7 +11,7 @@ module.exports.register = function (plugin, options, next) {
     handler: {
       directory: {
         path: 'src/admin',
-        index: true
+        index: false
       }
     }
   });

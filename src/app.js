@@ -18,6 +18,15 @@ var server = new Hapi.Server(8000, {
 });
 
 
+server.route({
+  path: '/',
+  method: '*',
+  handler: function (request, reply) {
+    reply().code(404);
+  }
+});
+
+
 server.pack.register(parliaments, { route: { prefix: '/parliaments' } }, function (err) {
   if (err) {
     console.log('Error when loading parliaments plugin', err);

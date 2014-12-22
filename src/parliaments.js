@@ -33,7 +33,7 @@ module.exports.register = function (plugin, options, next) {
             if (nomination.candidate.id) {
               insert_nomination(parliament_id, nomination.candidate.id, nomination.office.id);
 
-            } else if (nomination.candidate.name !== '') {
+            } else if (validName(nomination.candidate.name)) {
               var sql = 'INSERT INTO candidates (name) VALUES (' + rds.escape(nomination.candidate.name) + ')';
 
               rds.query(sql, function (err, result) {
@@ -76,28 +76,6 @@ module.exports.register = function (plugin, options, next) {
       });
     }
   });
-
-  // plugin.route({
-  //   method: 'GET',
-  //   path: '/all',
-  //   handler: function (request, reply) {
-
-  //     var sql = [
-  //       'SELECT parliaments.id, parliaments.uuid, count(nominations.id) candidates',
-  //       'FROM parliaments',
-  //       'LEFT JOIN nominations on nominations.parliament_id = parliaments.id',
-  //       'GROUP BY parliaments.id'].join(' ');
-
-  //     rds.query(sql, function (err, result) {
-  //       if (err) {
-  //         console.log(err);
-  //         reply().code(500);
-  //       } else {
-  //         reply(result);
-  //       }
-  //     });
-  //   }
-  // });
 
   plugin.route({
     method: 'GET',
@@ -175,28 +153,6 @@ module.exports.register = function (plugin, options, next) {
     }
   });
 
-
-  // plugin.route({
-  //   method: 'DELETE',
-  //   path: '/{uuid}',
-  //   handler: function (request, reply) {
-
-  //     var sql = 'DELETE FROM nominations WHERE parliament_id = (SELECT id FROM parliaments WHERE uuid = ' + rds.escape(request.params.uuid) + ')';
-
-  //     rds.query(sql, function (err, result) {
-  //       if (err) reply().code(500);
-  //       else {
-
-  //         var sql = 'DELETE FROM parliaments WHERE uuid = ' + rds.escape(request.params.uuid);
-
-  //         rds.query(sql, function (err, result) {
-  //           if (err) reply().code(500);
-  //           else reply().code(204);
-  //         });
-  //       }
-  //     });
-  //   }
-  // });
 };
 
 
@@ -205,6 +161,10 @@ module.exports.register.attributes = {
     version: '1.0.0'
 };
 
+
+function validName(name) {
+  return /^\s+$/.test(name) === false && /^http:\/\//g.test(name) === false;
+}
 
 function generateUUID () {
   var d = new Date().getTime();

@@ -210,6 +210,15 @@ GROUP BY office_id, candidate_id
 ORDER BY offices.sort ASC, score DESC
 
 
+SELECT * FROM candidates WHERE name like "%Zander%"
+-- find count
+ID = xxx;
+SELECT * FROM candidates WHERE name like "%Zander%" AND id != xxx
+-- find count om den er minus 1
+UPDATE nominations SET candidate_id = xxx WHERE candidate_id in (SELECT id FROM candidates WHERE name like "%Zander%" AND id != xxx)
+DELETE FROM _candidates WHERE name like "%Zander%" AND _id != xxx
+
+
 
 -- Beskæftigelsesminister 1
 -- 38  Henrik Dam Kristensen (S), politiker
