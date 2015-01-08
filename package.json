@@ -2,8 +2,9 @@
   "name": "parliaments",
   "version": "0.0.1",
   "description": "Sæt din egen regering",
-  "main": "src/app.js",
+  "main": "src/server.js",
   "scripts": {
+    "start": "node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Berlingske Media",

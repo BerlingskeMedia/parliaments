@@ -51,7 +51,21 @@ module.exports.register = function (plugin, options, next) {
   plugin.route({
     method: 'GET',
     path: '/',
+    // config: {
+    //   validate: {
+    //     headers: function (value, options, next) {
+    //       if (value.origin === 'http://www.politiko.dk' && value.referer === 'http://www.politiko.dk/minregering')
+    //         next();
+    //       else
+    //         next('invalid');
+    //     }
+    //   }
+    // },
     handler: function (request, reply) {
+
+      // console.log('request.state', request.state);
+      // console.log('request.info', request.info);
+      // console.log('request.headers', request.headers);
 
       var sql = [
         'SELECT *',

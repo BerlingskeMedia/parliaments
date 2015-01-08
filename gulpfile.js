@@ -10,7 +10,7 @@ gulp.task('start', function() {
   if (node) {
     node.kill();
   }
-  node = spawn('node', ['./src/app.js'], {stdio: 'inherit'});
+  node = spawn('node', ['./src/server.js'], {stdio: 'inherit'});
 });
 
 var node_inspector;
@@ -18,7 +18,7 @@ gulp.task('debug', function() {
   if (node) {
     node.kill();
   }
-  node = spawn('node', ['--debug=5858', './src/app.js'], {stdio: 'inherit'});
+  node = spawn('node', ['--debug=5858', './src/server.js'], {stdio: 'inherit'});
 
   if (node_inspector) {
     node_inspector.kill();
