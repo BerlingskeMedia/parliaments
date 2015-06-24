@@ -210,14 +210,8 @@ GROUP BY office_id, candidate_id
 ORDER BY offices.sort ASC, score DESC
 
 
-SELECT * FROM candidates WHERE name like "%Zander%"
--- find count
-ID = xxx;
-SELECT * FROM candidates WHERE name like "%Zander%" AND id != xxx
--- find count om den er minus 1
-UPDATE nominations SET candidate_id = xxx WHERE candidate_id in (SELECT id FROM candidates WHERE name like "%Zander%" AND id != xxx)
-DELETE FROM _candidates WHERE name like "%Zander%" AND _id != xxx
-
+-- Find duplicates
+select id, name, count(*) from candidates group by name having count(*) > 1
 
 
 -- Beskæftigelsesminister 1
