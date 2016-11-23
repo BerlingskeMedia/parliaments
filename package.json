@@ -5,8 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "build": "sudo docker build -t bmdako/parliaments:$npm_package_version . && sudo docker tag bmdako/parliaments:$npm_package_version bmdako/parliaments:latest",
-    "push": "sudo docker push bmdako/parliaments:$npm_package_version && sudo docker push bmdako/parliaments:latest"
+    "build": "docker build -t berlingskemedia/parliaments:$npm_package_version . && docker tag berlingskemedia/parliaments:$npm_package_version berlingskemedia/parliaments:latest",
+    "push": "docker push berlingskemedia/parliaments:$npm_package_version && docker push berlingskemedia/parliaments:latest"
   },
   "author": "Berlingske Media",
   "license": "ISC",
